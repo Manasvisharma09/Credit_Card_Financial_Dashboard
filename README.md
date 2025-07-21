@@ -25,11 +25,4 @@ A Power BI dashboard for analyzing credit card transactions, spending trends, cu
 - Dashboard layout and design in `dashboard_layout.md`.
 - Custom color theme in `financial_theme.json`.
 
-## Screenshots
-
-Add screenshots of your dashboard here for your portfolio!
-
----
-
-*Created by [Your Name]. For portfolio and interview use.*
 
