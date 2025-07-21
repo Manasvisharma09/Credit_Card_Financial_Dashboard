@@ -394,8 +394,7 @@ def main():
         <div style="text-align: center; padding: 2rem; background: linear-gradient(90deg, #667eea, #764ba2); 
                     border-radius: 10px; color: white; margin: 1rem 0;">
             <h4>📊 Credit Card Financial Dashboard</h4>
-            <p style="margin: 0;">Built with Streamlit & Plotly | Enhanced UI Design</p>
-            <small>Created for Portfolio & Interview Purposes</small>
+            
         </div>
         """, unsafe_allow_html=True)
 
