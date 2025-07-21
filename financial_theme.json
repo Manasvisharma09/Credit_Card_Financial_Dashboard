@@ -1,0 +1,7 @@
+{
+  "name": "Financial Dashboard",
+  "dataColors": ["#2E86AB", "#34A853", "#F9A825", "#E15759", "#6C3483", "#17A589"],
+  "background": "#FFFFFF",
+  "foreground": "#222222",
+  "tableAccent": "#2E86AB"
+} 

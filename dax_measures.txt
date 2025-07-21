@@ -1,0 +1,23 @@
+// DAX Measures
+Total Spending = SUM('cc_add'[Total_Trans_Amt])
+
+Number of Transactions = SUM('cc_add'[Total_Trans_Ct])
+
+Average Transaction Value = DIVIDE([Total Spending], [Number of Transactions])
+
+Active Customers = DISTINCTCOUNT('cc_add'[Client_Num])
+
+Outstanding Balance = SUM('cc_add'[Total_Revolving_Bal])
+
+Credit Utilization Rate = DIVIDE([Outstanding Balance], SUM('cc_add'[Credit_Limit]))
+
+Delinquent Accounts = CALCULATE(DISTINCTCOUNT('cc_add'[Client_Num]), 'cc_add'[Delinquent_Acc]=1)
+
+Delinquency Rate = DIVIDE([Delinquent Accounts], [Active Customers])
+
+Interest Earned = SUM('cc_add'[Interest_Earned])
+
+// Calculated Columns
+Month = FORMAT('cc_add'[Week_Start_Date], "YYYY-MM")
+
+Is Delinquent = IF('cc_add'[Delinquent_Acc]=1, "Yes", "No") 

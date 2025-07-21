@@ -1,0 +1,27 @@
+let
+    Source = Csv.Document(File.Contents("C:\Path\To\cc_add.csv"),[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    ChangedTypes = Table.TransformColumnTypes(PromotedHeaders,{
+        {"Client_Num", Int64.Type},
+        {"Card_Category", type text},
+        {"Annual_Fees", Int64.Type},
+        {"Activation_30_Days", Int64.Type},
+        {"Customer_Acq_Cost", Int64.Type},
+        {"Week_Start_Date", type date},
+        {"Week_Num", type text},
+        {"Qtr", type text},
+        {"current_year", Int64.Type},
+        {"Credit_Limit", Int64.Type},
+        {"Total_Revolving_Bal", Int64.Type},
+        {"Total_Trans_Amt", Int64.Type},
+        {"Total_Trans_Ct", Int64.Type},
+        {"Avg_Utilization_Ratio", type number},
+        {"Use Chip", type text},
+        {"Exp Type", type text},
+        {"Interest_Earned", type number},
+        {"Delinquent_Acc", Int64.Type}
+    }),
+    RemovedDuplicates = Table.Distinct(ChangedTypes, {"Client_Num", "Week_Start_Date"}),
+    ReplacedNulls = Table.ReplaceValue(RemovedDuplicates,null,0,Replacer.ReplaceValue,{"Total_Trans_Amt","Total_Trans_Ct","Total_Revolving_Bal","Interest_Earned"})
+in
+    ReplacedNulls 
